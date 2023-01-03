@@ -7,7 +7,7 @@ describe('getUserLocale', () => {
       expect(locale).not.toBeUndefined()
       expect(typeof locale).toBe('string')
       // expect(locale).toEqual('h:mm:ss tt')
-      expect(locale).toMatch(/h:mm:ss tt|HH:mm:ss/)
+      expect(locale).toMatch(/h:mm tt|HH:mm/)
     }
   })
 })

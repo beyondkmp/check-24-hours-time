@@ -3,7 +3,7 @@
 ## API
 
 ```typescript
-import { getUserLocale } from 'win32-user-locale'
+import { getUserLocale } from 'beyondkmp/win32-user-locale'
 
 // getUserLocale returns 'h:mm:ss tt' if system time is 12 hours. returns 'HH:mm:ss' if 24 hours
 // return undefine if GetLocaleInfoEx call fails

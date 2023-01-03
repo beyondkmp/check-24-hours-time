@@ -5,11 +5,13 @@
 ```typescript
 import { getUserLocale } from 'win32-user-locale'
 
-// getUserLocale returns undefined if the underlying
-// GetLocaleInfoEx calll fails
-const locale = getUserLocale() ?? 'en-US'
-
-console.log(locale) // en-SE for example
+// getUserLocale returns 'h:mm:ss tt' if system time is 12 hours. returns 'HH:mm:ss' if 24 hours
+// return undefine if GetLocaleInfoEx call fails
+const locale = getUserLocale()
+if (locale){
+  locale[0] === 'h' && console.log('12 hours');
+  locale[0] === 'H' && console.log('24 hours');
+}
 ```
 
 ## Setup

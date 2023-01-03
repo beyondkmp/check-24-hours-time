@@ -18,11 +18,11 @@ function getNativeModule() {
   return _nativeModule
 }
 
-const LOCALE_SNAME = 0x0000005c
+const LOCALE_STIMEFORMAT = 0x00001003  
 
 export function getUserLocale(): string | undefined {
   const buf = Buffer.alloc(256)
-  const result = getNativeModule()?.getLocaleInfoEx(null, LOCALE_SNAME, buf)
+  const result = getNativeModule()?.getLocaleInfoEx(null, LOCALE_STIMEFORMAT, buf)
 
   return result !== undefined && result > 0
     ? buf.toString('utf16le', 0, (result - 1) * 2)

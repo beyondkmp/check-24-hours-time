@@ -6,7 +6,8 @@ describe('getUserLocale', () => {
       const locale = getUserLocale()
       expect(locale).not.toBeUndefined()
       expect(typeof locale).toBe('string')
-      expect(locale).toMatch(/^[a-z]{2}-[A-Z]{2}$/)
+      // expect(locale).toEqual('h:mm:ss tt')
+      expect(locale).toMatch(/h:mm:ss tt|HH:mm:ss/)
     }
   })
 })

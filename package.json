@@ -21,15 +21,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/desktop/win32-user-locale.git"
+    "url": "git+https://github.com/beyondkmp/check-24-hours-time.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/desktop/win32-user-locale/issues"
+    "url": "https://github.com/beyondkmp/check-24-hours-time/issues"
   },
-  "homepage": "https://github.com/desktop/win32-user-locale#readme",
+  "homepage": "https://github.com/beyondkmp/check-24-hours-time#readme",
   "devDependencies": {
     "@types/jest": "^27.4.1",
     "@types/node": "^16.0.0",

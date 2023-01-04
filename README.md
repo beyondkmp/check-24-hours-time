@@ -15,12 +15,21 @@ $ yarn add check-24-hours-time
 $ npm install --save check-24-hours-time
 ```
 
+## API
+
+```typescript
+import { is24hoursTimeFormat } from 'beyondkmp/check-24-hours-time'
+
+// is24hoursTimeFormat returns true if system time is 24 hours. returns false if 12 hours
+const result = is24hoursTimeFormat()
+console.log(result)
 ```
 
 ## Documentation
 
 See the documentation under the
-[`docs`](https://github.com/beyondkmp/check-24-hours-time/tree/master/docs) folder.
+[`docs`](https://github.com/beyondkmp/check-24-hours-time/tree/master/docs)
+folder.
 
 ## Supported versions
 
@@ -43,4 +52,7 @@ support GitHub Desktop and our priorities reflect that.
 
 If you want to see something supported, open an issue to start a discussion
 about it.
+
+```
+
 ```

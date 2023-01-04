@@ -1,9 +1,5 @@
 type NativeModule = {
-  getLocaleInfoEx: (
-    lpLocaleName: string | null,
-    LCType: number,
-    lpLCData: Buffer
-  ) => number
+  is24hoursTimeFormat: () => boolean
 }
 
 // The native binary will be loaded lazily to avoid any possible crash at start
@@ -11,20 +7,12 @@ type NativeModule = {
 let _nativeModule: NativeModule | undefined = undefined
 
 function getNativeModule() {
-  if (_nativeModule === undefined && process.platform === 'win32') {
-    _nativeModule = require('bindings')('win32-user-locale.node')
-  }
-
+  _nativeModule = require('bindings')('check-24-hours-time.node')
+  // _nativeModule = require('../build/Release/win32-user-locale.node')
   return _nativeModule
 }
 
-const LOCALE_SSHORTTIME =  0x00000079    
-
-export function getUserLocale(): string | undefined {
-  const buf = Buffer.alloc(256)
-  const result = getNativeModule()?.getLocaleInfoEx(null, LOCALE_SSHORTTIME, buf)
-
-  return result !== undefined && result > 0
-    ? buf.toString('utf16le', 0, (result - 1) * 2)
-    : undefined
+export function is24hoursTimeFormat(): boolean {
+  const result = getNativeModule()?.is24hoursTimeFormat()
+  return !!result
 }

@@ -1,7 +1,7 @@
 {
   'targets': [
     {
-      'target_name': 'win32-user-locale',
+      'target_name': 'check-24-hours-time',
       'cflags!': [ '-fno-exceptions' ],
       'cflags_cc!': [ '-fno-exceptions' ],
       'msvs_settings': {
@@ -23,6 +23,20 @@
             4506,  # no definition for inline function
           ],
         }],
+        ["OS=='mac'", {
+          'sources': [
+            'src/main.mm',
+          ],
+              "cflags+": [ "-stdlib=libc++" ],
+              "xcode_settings": {
+                  "OTHER_CPLUSPLUSFLAGS" : [ "-std=c++11", "-stdlib=libc++", "-pthread" ],
+                  "OTHER_LDFLAGS": [ "-stdlib=libc++" ],
+                  "GCC_ENABLE_CPP_EXCEPTIONS": "YES",
+                  "MACOSX_DEPLOYMENT_TARGET": "10.7",
+                  "CLANG_CXX_LANGUAGE_STANDARD":"c++11",
+                  "CLANG_CXX_LIBRARY": "libc++"
+              },
+          }],
       ],
     }
   ]

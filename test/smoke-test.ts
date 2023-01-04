@@ -1,13 +1,18 @@
-import { getUserLocale } from '../lib/'
+import { is24hoursTimeFormat } from '../lib/'
 
 describe('getUserLocale', () => {
   it('works', () => {
     if (process.platform === 'win32') {
-      const locale = getUserLocale()
+      const locale = is24hoursTimeFormat()
       expect(locale).not.toBeUndefined()
-      expect(typeof locale).toBe('string')
-      // expect(locale).toEqual('h:mm:ss tt')
-      expect(locale).toMatch(/h:mm tt|HH:mm/)
+      console.log(locale)
+      expect(typeof locale).toBe('boolean')
+    }
+    if (process.platform === 'darwin') {
+      const locale = is24hoursTimeFormat()
+      expect(locale).not.toBeUndefined()
+      console.log(locale)
+      expect(typeof locale).toBe('boolean')
     }
   })
 })

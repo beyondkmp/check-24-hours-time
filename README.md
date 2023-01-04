@@ -1,6 +1,6 @@
-# win32-user-locale
+# Check 24 hours time
 
-## A thin wrapper on top of GetLocaleInfoEx to get the user locale on Windows
+## A thin wrapper native interface to get the 24 hours time format
 
 ## Goals
 
@@ -10,15 +10,17 @@
 ## Install
 
 ```shellsession
-$ yarn add win32-user-locale
+$ yarn add check-24-hours-time
 # or
-$ npm install --save win32-user-locale
+$ npm install --save check-24-hours-time
+```
+
 ```
 
 ## Documentation
 
 See the documentation under the
-[`docs`](https://github.com/desktop/win32-user-locale/tree/master/docs) folder.
+[`docs`](https://github.com/beyondkmp/check-24-hours-time/tree/master/docs) folder.
 
 ## Supported versions
 
@@ -33,7 +35,7 @@ supported currently.
 ## Contributing
 
 Read the
-[Setup](https://github.com/desktop/win32-user-locale/blob/master/docs/index.md#setup)
+[Setup](https://github.com/beyondkmp/check-24-hours-time/blob/master/docs/index.md#setup)
 section to ensure your development environment is setup for what you need.
 
 While we always try to accomodate requests this package is mainly developed to
@@ -41,3 +43,4 @@ support GitHub Desktop and our priorities reflect that.
 
 If you want to see something supported, open an issue to start a discussion
 about it.
+```

@@ -3,22 +3,18 @@
 ## API
 
 ```typescript
-import { getUserLocale } from 'beyondkmp/win32-user-locale'
+import { is24hoursTimeFormat } from 'beyondkmp/check-24-hours-time'
 
-// getUserLocale returns 'h:mm tt' if system time is 12 hours. returns 'HH:mm' if 24 hours
-// return undefine if GetLocaleInfoEx call fails
-const locale = getUserLocale()
-if (locale){
-  locale[0] === 'h' && console.log('12 hours');
-  locale[0] === 'H' && console.log('24 hours');
-}
+// is24hoursTimeFormat returns true if system time is 24 hours. returns false if 12 hours
+const result = is24hoursTimeFormat()
+console.log(result)
 ```
 
 ## Setup
 
 ```shellsession
-$ git clone https://github.com/desktop/win32-user-locale
-$ cd win32-user-locale
+$ git clone https://github.com/beyondkmp/check-24-hours-time.git
+$ cd check-24-hours-time
 $ yarn
 ```
 
@@ -37,3 +33,4 @@ with a recent version of Node:
       required by Node.js for installing native modules._
     - _Run `npm config set msvs_version 2019` to tell node to use this
       toolchain._
+- Xcode

@@ -1,6 +1,6 @@
 # Check 24 hours time
 
-## A thin wrapper native interface to get the 24 hours time format
+## A thin wrapper native interface to check the system setting is the 24 hours time format
 
 ## Goals
 

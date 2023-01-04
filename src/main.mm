@@ -4,7 +4,7 @@
 
 Napi::Value is24hoursTimeFormat(const Napi::CallbackInfo &info)
 {
-	 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
    [formatter setLocale:[NSLocale currentLocale]];
    [formatter setDateStyle:NSDateFormatterNoStyle];
    [formatter setTimeStyle:NSDateFormatterShortStyle];

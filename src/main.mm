@@ -22,7 +22,7 @@ Napi::Object Init(Napi::Env env, Napi::Object exports)
 }
 
 #if NODE_MAJOR_VERSION >= 10
-NAN_MODULE_WORKER_ENABLED(win32UserLocaleNativeModule, Init)
+NAN_MODULE_WORKER_ENABLED(check24HoursTimeModule, Init)
 #else
-NODE_API_MODULE(win32UserLocaleNativeModule, Init);
+NODE_API_MODULE(check24HoursTimeModule, Init);
 #endif

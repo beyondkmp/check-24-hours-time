@@ -1,17 +1,28 @@
-#import <Foundation/Foundation.h>
 #include <napi.h>
+#include <windows.h>
 
 Napi::Value is24hoursTimeFormat(const Napi::CallbackInfo &info)
 {
-  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-  [formatter setLocale:[NSLocale currentLocale]];
-  [formatter setDateStyle:NSDateFormatterNoStyle];
-  [formatter setTimeStyle:NSDateFormatterShortStyle];
-  NSString *dateString = [formatter stringFromDate:[NSDate date]];
-  NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
-  NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
-  bool is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
-  return Napi::Value::From(info.Env(), is24h);
+  wchar_t format[80]; // 80 is always enough
+  bool is24Hours = false;
+
+  int ret = GetLocaleInfoEx(
+      LOCALE_NAME_USER_DEFAULT,
+      LOCALE_SSHORTTIME,
+      format,
+      sizeof(format) / sizeof(*format));
+  if (ret == 0)
+  {
+    is24Hours = false;
+  }
+  else
+  {
+    if (format[0] == 'H')
+    {
+      is24Hours = true;
+    }
+  }
+  return Napi::Value::From(info.Env(), is24Hours);
 }
 
 Napi::Object Init(Napi::Env env, Napi::Object exports)
@@ -19,9 +30,8 @@ Napi::Object Init(Napi::Env env, Napi::Object exports)
   exports.Set(Napi::String::New(env, "is24hoursTimeFormat"), Napi::Function::New(env, is24hoursTimeFormat));
   return exports;
 }
-
 #if NODE_MAJOR_VERSION >= 10
-NAN_MODULE_WORKER_ENABLED(win32UserLocaleNativeModule, Init)
+NAN_MODULE_WORKER_ENABLED(check24HoursTimeModule, Init)
 #else
-NODE_API_MODULE(win32UserLocaleNativeModule, Init);
+NODE_API_MODULE(check24HoursTimeModule, Init);
 #endif

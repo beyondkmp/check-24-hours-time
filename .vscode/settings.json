@@ -12,5 +12,10 @@
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "xlocinfo": "cpp",
+    "xstring": "cpp",
+    "xutility": "cpp"
+  }
 }

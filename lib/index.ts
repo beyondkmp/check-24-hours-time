@@ -8,7 +8,6 @@ let _nativeModule: NativeModule | undefined = undefined
 
 function getNativeModule() {
   _nativeModule = require('bindings')('check-24-hours-time.node')
-  // _nativeModule = require('../build/Release/win32-user-locale.node')
   return _nativeModule
 }
 

@@ -11,16 +11,9 @@ Napi::Value is24hoursTimeFormat(const Napi::CallbackInfo &info)
       LOCALE_SSHORTTIME,
       format,
       sizeof(format) / sizeof(*format));
-  if (ret == 0)
+  if (ret != 0 && format[0] == 'H')
   {
-    is24Hours = false;
-  }
-  else
-  {
-    if (format[0] == 'H')
-    {
-      is24Hours = true;
-    }
+    is24Hours = true;
   }
   return Napi::Value::From(info.Env(), is24Hours);
 }

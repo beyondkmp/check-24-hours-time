@@ -1,1 +1,8 @@
-{"symbols":{},"files":{"lib\\index.ts":"2023-01-04T10:21:49.749Z","test\\smoke-test.ts":"2023-01-04T10:21:49.752Z","dist\\index.d.ts":"2023-01-04T10:55:36.405Z"}}
+{
+  "symbols": {},
+  "files": {
+    "lib\\index.ts": "2023-01-04T10:21:49.749Z",
+    "test\\smoke-test.ts": "2023-01-04T10:21:49.752Z",
+    "dist\\index.d.ts": "2023-01-04T10:55:36.405Z"
+  }
+}

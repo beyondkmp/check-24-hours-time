@@ -19,10 +19,14 @@ $ npm install --save check-24-hours-time
 ## API
 
 ```typescript
-import { is24hoursTimeFormat } from 'check-24-hours-time'
+import { is24hoursTimeFormat, getUserDefaultLocaleName } from 'check-24-hours-time'
 
 // is24hoursTimeFormat returns true if system time is 24 hours. returns false if 12 hours
 const result = is24hoursTimeFormat()
+console.log(result)
+
+// getUserDefaultLocaleName returns the user default locale name, return default(en-US) if there's an error
+const result = getUserDefaultLocaleName()
 console.log(result)
 ```
 

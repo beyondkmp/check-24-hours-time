@@ -15,9 +15,16 @@ Napi::Value is24hoursTimeFormat(const Napi::CallbackInfo &info)
    return Napi::Value::From(info.Env(), is24h);
 }
 
+Napi::String getUserDefaultLocaleName(const Napi::CallbackInfo &info)
+{
+  // todo
+  return Napi::String::New(info.Env(), "en-US");
+}
+
 Napi::Object Init(Napi::Env env, Napi::Object exports)
 {
     exports.Set(Napi::String::New(env, "is24hoursTimeFormat"), Napi::Function::New(env, is24hoursTimeFormat));
+    exports.Set(Napi::String::New(env, "getUserDefaultLocaleName"), Napi::Function::New(env, getUserDefaultLocaleName));
     return exports;
 }
 

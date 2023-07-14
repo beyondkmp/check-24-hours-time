@@ -1,5 +1,6 @@
 type NativeModule = {
   is24hoursTimeFormat: () => boolean
+  getUserDefaultLocaleName: () => String
 }
 
 // The native binary will be loaded lazily to avoid any possible crash at start
@@ -14,4 +15,9 @@ function getNativeModule() {
 export function is24hoursTimeFormat(): boolean {
   const result = getNativeModule()?.is24hoursTimeFormat()
   return !!result
+}
+
+export function getUserDefaultLocaleName(): String {
+  const result = getNativeModule()?.getUserDefaultLocaleName()
+  return result || 'en-US'
 }

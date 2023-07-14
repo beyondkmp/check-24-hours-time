@@ -18,9 +18,24 @@ Napi::Value is24hoursTimeFormat(const Napi::CallbackInfo &info)
   return Napi::Value::From(info.Env(), is24Hours);
 }
 
+Napi::String getUserDefaultLocaleName(const Napi::CallbackInfo &info)
+{
+  wchar_t localeName[LOCALE_NAME_MAX_LENGTH] = {0};
+
+  // Retrieve the default user locale name
+  if (GetUserDefaultLocaleName(localeName, LOCALE_NAME_MAX_LENGTH))
+  {
+    std::wstring wideString(localeName);
+    std::string narrowString(wideString.begin(), wideString.end());
+    return Napi::String::New(info.Env(), narrowString);
+  }
+  return Napi::String::New(info.Env(), "en-US");
+}
+
 Napi::Object Init(Napi::Env env, Napi::Object exports)
 {
   exports.Set(Napi::String::New(env, "is24hoursTimeFormat"), Napi::Function::New(env, is24hoursTimeFormat));
+  exports.Set(Napi::String::New(env, "getUserDefaultLocaleName"), Napi::Function::New(env, getUserDefaultLocaleName));
   return exports;
 }
 #if NODE_MAJOR_VERSION >= 10

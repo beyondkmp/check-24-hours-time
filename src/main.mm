@@ -17,8 +17,14 @@ Napi::Value is24hoursTimeFormat(const Napi::CallbackInfo &info)
 
 Napi::String getUserDefaultLocaleName(const Napi::CallbackInfo &info)
 {
-  // todo
-  return Napi::String::New(info.Env(), "en-US");
+  NSLocale *locale = [NSLocale currentLocale];
+  NSString *localeIdentifier = [locale localeIdentifier];
+
+  // Convert NSString to std::string
+  const char *cStr = [localeIdentifier UTF8String];
+  std::string stdStr(cStr);
+  
+  return Napi::String::New(info.Env(), stdStr);
 }
 
 Napi::Object Init(Napi::Env env, Napi::Object exports)

@@ -27,7 +27,7 @@ describe('getUserLocale', () => {
       const locale = getUserDefaultLocaleName()
       expect(locale).not.toBeUndefined()
       console.log(locale)
-      expect(typeof locale).toBe('boolean')
+      expect(typeof locale).toBe('string')
     }
   })
 })

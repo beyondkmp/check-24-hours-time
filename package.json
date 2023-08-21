@@ -1,6 +1,6 @@
 {
   "name": "check-24-hours-time",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "A thin wrapper on top of GetLocaleInfoEx",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

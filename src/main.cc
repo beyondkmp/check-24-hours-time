@@ -23,13 +23,14 @@ Napi::String getUserDefaultLocaleName(const Napi::CallbackInfo &info)
   wchar_t localeName[LOCALE_NAME_MAX_LENGTH] = {0};
 
   // Retrieve the default user locale name
-  if (GetUserDefaultLocaleName(localeName, LOCALE_NAME_MAX_LENGTH))
+  if (FAILED(GetUserDefaultLocaleName(localeName, LOCALE_NAME_MAX_LENGTH)))
   {
-    std::wstring wideString(localeName);
-    std::string narrowString(wideString.begin(), wideString.end());
-    return Napi::String::New(info.Env(), narrowString);
+    return Napi::String::New(info.Env(), "en-US");
   }
-  return Napi::String::New(info.Env(), "en-US");
+
+  std::wstring wideString(localeName);
+  std::string narrowString(wideString.begin(), wideString.end());
+  return Napi::String::New(info.Env(), narrowString);
 }
 
 Napi::Object Init(Napi::Env env, Napi::Object exports)

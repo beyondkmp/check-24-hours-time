@@ -12,6 +12,9 @@ Napi::Value is24hoursTimeFormat(const Napi::CallbackInfo &info)
    NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
    NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
    bool is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
+
+   [formatter release];  // Release the NSDateFormatter instance
+   
    return Napi::Value::From(info.Env(), is24h);
 }
 
